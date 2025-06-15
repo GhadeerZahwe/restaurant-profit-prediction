@@ -59,7 +59,7 @@ plt.ylabel('Profit in $10,000')
 plt.xlabel('Population of City in 10,000s')
 plt.show()
 ```
-![image](https://github.com/user-attachments/assets/ceaa79c7-d6b3-4abc-bb2f-c4cbebeaddbc)
+![image](https://github.com/user-attachments/assets/308ec7e2-3db2-4d4c-b188-6aacef22ac06)
 
 ## Goal: 
 The goal is to build a linear regression model to fit this data. With this model, you can then input a new city's population, and have the model estimate your restaurant's potential monthly profits for that city.
