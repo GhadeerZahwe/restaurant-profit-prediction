@@ -106,9 +106,13 @@ Parameters w and b were updated iteratively using the computed gradients to mini
 
 ## Repository Structure
 restaurant-profit-prediction/
+
 ├── utils.py                # Helper functions like data loading
+
 ├── public_tests.py # Automated test functions to verify the correctness of your core model functions
+
 ├── linear_regression.ipynb # Main notebook with implementation and results
+
 ├── README.md               # This document
 
 ## Getting Started
