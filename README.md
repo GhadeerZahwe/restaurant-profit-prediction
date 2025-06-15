@@ -104,6 +104,100 @@ def compute_gradient(x, y, w, b):
 ## Gradient Descent Optimization
 Parameters w and b were updated iteratively using the computed gradients to minimize the cost function, leading to the best-fit linear regression model.
 
+##  Learning Parameters Using Batch Gradient Descent
+In this section, we apply batch gradient descent to learn the optimal parameters w and b for a simple linear regression model using training data.
+
+## Objective
+Use batch gradient descent to minimize the cost function and find the best-fitting line to predict profits based on city population.
+
+```python
+def gradient_descent(x, y, w_in, b_in, cost_function, gradient_function, alpha, num_iters): 
+    m = len(x)
+    J_history = []
+    w_history = []
+    w = copy.deepcopy(w_in)
+    b = b_in
+
+    for i in range(num_iters):
+        dj_dw, dj_db = gradient_function(x, y, w, b)
+
+        w = w - alpha * dj_dw
+        b = b - alpha * dj_db
+
+        if i < 100000:
+            cost = cost_function(x, y, w, b)
+            J_history.append(cost)
+
+        if i % math.ceil(num_iters / 10) == 0:
+            w_history.append(w)
+            print(f"Iteration {i:4}: Cost {float(J_history[-1]):8.2f}   ")
+
+    return w, b, J_history, w_history
+
+```
+
+### Running Gradient Descent
+```python
+# Initialize parameters
+initial_w = 0.
+initial_b = 0.
+
+# Settings
+iterations = 1500
+alpha = 0.01
+
+# Run gradient descent
+w, b, _, _ = gradient_descent(x_train, y_train, initial_w, initial_b, 
+                              compute_cost, compute_gradient, alpha, iterations)
+
+print("w,b found by gradient descent:", w, b)
+
+```
+
+## Output 
+![image](https://github.com/user-attachments/assets/8a00fc9b-4af5-4c06-83c3-46a7b800d332)
+
+To calculate the predictions on the entire dataset, we can loop through all the training examples and calculate the prediction for each example. This is shown in the code block below.
+```python
+m = x_train.shape[0]
+predicted = np.zeros(m)
+
+for i in range(m):
+    predicted[i] = w * x_train[i] + b
+```
+## Plotting the Linear Fit
+We can use the final w and b to generate predictions and visualize the line of best fit.
+
+```python
+# Plot the linear fit
+plt.plot(x_train, predicted, c = "b")
+
+# Create a scatter plot of the data. 
+plt.scatter(x_train, y_train, marker='x', c='r') 
+
+# Set the title
+plt.title("Profits vs. Population per city")
+# Set the y-axis label
+plt.ylabel('Profit in $10,000')
+# Set the x-axis label
+plt.xlabel('Population of City in 10,000s')
+```
+
+![image](https://github.com/user-attachments/assets/b99e7a0e-e2cf-4dd2-976f-ccd9a7024547)
+
+## Predicting Profits
+Now use the learned model to make predictions for city populations of 35,000 and 70,000:
+![image](https://github.com/user-attachments/assets/ab59019d-d4b1-481a-9cc1-712835c1d0a4)
+```python
+predict1 = 3.5 * w + b
+print('For population = 35,000, we predict a profit of $%.2f' % (predict1 * 10000))
+
+predict2 = 7.0 * w + b
+print('For population = 70,000, we predict a profit of $%.2f' % (predict2 * 10000))
+```
+## Output 
+![image](https://github.com/user-attachments/assets/969206ac-91a2-4edc-b29c-294cfd098e21)
+
 ## Repository Structure
 restaurant-profit-prediction/
 
