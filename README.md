@@ -23,18 +23,15 @@ from utils import *
 * matplotlib is a famous library to plot graphs in Python.
 * utils.py contains helper functions for this assignment. You do not need to modify code in this file.
 
-## Dataset
-The load_data() function shown below loads the data into variables x_train and y_train
-* x_train: Population of cities (in 10,000s)
-* y_train: Profits (in $10,000s). A negative value for profit indicates a loss.
+
+## Data Exploration and Visualization
   
-Both X_train and y_train are numpy arrays.
+The load_data() function shown below loads the data into variables x_train and y_train
 ```python
 
 x_train, y_train = load_data()
 ```
 
-## Data Exploration and Visualization
 Before building the model, it is important to understand the dataset.
 
 ### View Variables:
