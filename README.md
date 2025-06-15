@@ -118,6 +118,9 @@ restaurant-profit-prediction/
 ## Getting Started
 To run this notebook:
 1. Clone the repository
+```python
+git clone https://github.com/GhadeerZahwe/restaurant-profit-prediction.git
+```
 2. Install required libraries (numpy, matplotlib)
 3. Open and run linear_regression.ipynb in Jupyter Notebook or Google Colab
 
